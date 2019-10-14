@@ -22,7 +22,7 @@ class App {
       return res.json({ hello: 'world' })
     })
     this.express.get('/*', (req, res) => {
-      return res.sendFile(resolve(__dirname, '..', 'frontend', 'build', 'index.html'))
+      return res.sendFile(resolve(__dirname, '..', '..', 'frontend', 'build', 'index.html'))
     })
   }
 }

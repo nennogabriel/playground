@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.ts",
-    "build": "sucrase ./src -d ./dist --transforms typescript,imports",
-    "start": "node dist/server.js"
+    "dev": "nodemon backend/src/server.ts",
+    "build": "sucrase ./backend/src -d ./backend/build --transforms typescript,imports",
+    "start": "node backend/build/server.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
