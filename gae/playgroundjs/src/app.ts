@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import { resolve } from 'path'
 
 class App {
   public express: express.Application
@@ -17,8 +18,11 @@ class App {
   }
 
   private routes (): void {
-    this.express.get('/', (req, res) => {
-      return res.send('Hello Google')
+    this.express.get('/api', (req, res) => {
+      return res.json({ hello: 'world' })
+    })
+    this.express.get('/*', (req, res) => {
+      return res.sendFile(resolve(__dirname, '..', 'frontend', 'build', 'index.html'))
     })
   }
 }

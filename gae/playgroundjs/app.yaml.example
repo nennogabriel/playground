@@ -1,0 +1,14 @@
+runtime: nodejs10
+
+env_variables:
+  NODE_ENV: 'production'
+
+handlers:
+  - url: /static
+    static_dir: frontend/build/static
+    expiration: 2d
+
+  - url: /([^\/\,]+\.\w{2,5})$
+    static_files: frontend/build/\1
+    upload: ^\/([^\/\,]+\.\w{2,5})$
+    expiration: 2d

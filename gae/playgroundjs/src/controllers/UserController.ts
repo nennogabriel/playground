@@ -3,7 +3,7 @@ import { Datastore } from '@google-cloud/datastore'
 
 const datastore = new Datastore()
 
-const getUsers = ()<Datastore> => {
+const getUsers = () => {
   const query = datastore
     .createQuery('User')
     .order('timestamp', { descending: true })
