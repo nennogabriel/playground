@@ -15,9 +15,12 @@
 
 # Node.js dependencies:
 node_modules/
-src/
 
 # tools
 .eslintrc.js
 nodemon.json
 *.example
+
+# Source
+backend/
+frontend/

@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Request, Response } from 'express'
 import cors from 'cors'
 import { resolve } from 'path'
 
@@ -18,11 +18,11 @@ class App {
   }
 
   private routes (): void {
-    this.express.get('/api', (req, res) => {
+    this.express.get('/api', (req:Request, res:Response) => {
       return res.json({ hello: 'world' })
     })
-    this.express.get('/*', (req, res) => {
-      return res.sendFile(resolve(__dirname, '..', '..', 'frontend', 'build', 'index.html'))
+    this.express.get('/*', (req:Request, res:Response) => {
+      return res.sendFile(resolve(__dirname, '..', '..', 'build', 'web', 'index.html'))
     })
   }
 }

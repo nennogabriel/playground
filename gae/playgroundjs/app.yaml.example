@@ -6,13 +6,13 @@ env_variables:
 
 handlers:
   - url: /static/
-    expiration: 7d
-    static_dir: frontend/build/static/
+    expiration: 31d
+    static_dir: build/web/static/
 
   - url: /([^\/\,]+\.\w{2,5})$
-    static_files: frontend/build/\1
-    upload: frontend/build/([^\/\,]+\.\w{2,5})$
-    expiration: 5d
+    static_files: build/web/\1
+    upload: build/web/([^\/\,]+\.\w{2,5})$
+    expiration: 30d
 
   - url: .*
     secure: always
