@@ -4,13 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon backend/src/server.ts",
+    "dev": "NODE_ENV=development nodemon backend/src/server.ts",
     "build": "sucrase-node build.js",
-    "start": "node build/server/server.js"
+    "start": "node build/server/server.js",
+    "test": "NODE_ENV=test jest"
   },
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
     "eslint": "^6.5.1",
@@ -22,14 +25,21 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "fs-extra": "^8.1.0",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.3",
     "prettier": "^1.18.2",
     "sucrase": "^3.10.1",
+    "supertest": "^4.0.2",
     "typescript": "^3.6.4"
   },
   "dependencies": {
     "@google-cloud/datastore": "^4.3.0",
+    "bcrypt-nodejs": "^0.0.3",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "gstore-node": "^7.2.2",
+    "youch": "^2.0.10"
   }
 }
