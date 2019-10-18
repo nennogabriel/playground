@@ -26,6 +26,10 @@ class UserController {
   public async store (req: Request, res: Response): Promise<Response> {
     try {
       const entityData = User.sanitize(req.body)
+      const checkEmail = User.findOne({ email: req.body.email })
+      if (checkEmail) {
+        return res.status(403).json({ error: 'email already taken' })
+      }
       const user = new User(entityData)
 
       const entity = await user.save()

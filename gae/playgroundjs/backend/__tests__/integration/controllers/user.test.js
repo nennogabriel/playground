@@ -1,7 +1,12 @@
 import request from 'supertest'
 import app from '../../../src/app'
+import changeNamespace from '../../util/changeNamespace'
 
 describe('User', () => {
+  beforeEach(async () => {
+    await changeNamespace()
+  })
+
   it('should be able to register', async () => {
     const response = await request(app)
       .post('/api/users')
@@ -13,7 +18,7 @@ describe('User', () => {
     expect(response.body).toHaveProperty('id')
   })
 
-  it('should not be able to register with duplicated email', () => {
+  it('should not be able to register with duplicated email', async () => {
     await request(app)
       .post('/api/users')
       .send({
@@ -29,6 +34,6 @@ describe('User', () => {
         email: 'diego@fernandes.com.br',
         password: '123456'
       })
-    expect(response.status).toBe(400)
+    expect(response.status).toBe(403)
   })
 })
