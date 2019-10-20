@@ -6,3 +6,9 @@ frontend/package.json
 frontend/README.md
 frontend/tsconfig.json
 frontend/yarn.lock
+
+__pycache__/
+
+test.py
+requirements.dev.txt
+.editorconfig
