@@ -1,10 +1,10 @@
 import request from 'supertest'
 import app from '../../../src/app'
-import changeNamespace from '../../util/changeNamespace'
+import cleanup from '../../util/cleanup'
 
 describe('User', () => {
   beforeEach(async () => {
-    await changeNamespace()
+    await cleanup()
   })
 
   it('should be able to register', async () => {

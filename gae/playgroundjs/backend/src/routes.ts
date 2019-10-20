@@ -6,6 +6,7 @@ const routes: Router = new Router()
 routes.get('/users/', UserController.index)
 routes.get('/users/:id/', UserController.show)
 routes.post('/users/', UserController.store)
+routes.delete('/users/all', UserController.cleanup)
 
 routes.get('/VerySimpleRouteTeste', (req, res) => res.json({ ok: true }))
 

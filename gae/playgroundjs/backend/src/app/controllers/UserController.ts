@@ -16,7 +16,7 @@ class UserController {
   public async show (req: Request, res: Response): Promise<Response> {
     try {
       const userId = req.params.id
-      const entity = User.get(userId)
+      const entity = await User.get(userId)
       return res.json(entity.plain())
     } catch (err) {
       return res.status(400).json(err)
@@ -26,17 +26,23 @@ class UserController {
   public async store (req: Request, res: Response): Promise<Response> {
     try {
       const entityData = User.sanitize(req.body)
-      const checkEmail = User.findOne({ email: req.body.email })
+      const user = new User(entityData)
+
+      const checkEmail = await User.findOne({ email: user.email })
       if (checkEmail) {
         return res.status(403).json({ error: 'email already taken' })
       }
-      const user = new User(entityData)
 
       const entity = await user.save()
       return res.json(entity.plain())
     } catch (err) {
       return res.status(400).json(err)
     }
+  }
+
+  public async cleanup (req: Request, res: Response): Promise<Response> {
+    const response = await User.deleteAll()
+    return res.json(response)
   }
 }
 
