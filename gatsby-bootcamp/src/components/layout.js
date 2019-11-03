@@ -10,7 +10,7 @@ export default function Layout({ children }) {
   return (
     <div className={layoutStyles.container}>
       <div className={layoutStyles.content}>
-        <Header />
+        <Header title="Home" />
         {children}
       </div>
       <Footer />
