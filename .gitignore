@@ -7,6 +7,8 @@ build/
 ### Security Data ###
 .env
 app.yaml
+.sqlite
+
 
 ###### FRAMEWORKS ######
 ### React ###
@@ -24,6 +26,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+__snapshots__/
 coverage
 .cache
 
