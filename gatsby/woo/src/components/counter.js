@@ -1,6 +1,5 @@
 import React from "react"
-import { useStore, useDispatch, useActions } from "../store"
-import * as counterTypes from "../store/counter/types"
+import { useStore, useActions } from "../store"
 
 function Counter() {
   const { counter } = useStore()
