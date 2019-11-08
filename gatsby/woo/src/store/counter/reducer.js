@@ -1,4 +1,4 @@
-import * as types from "./types"
+import counterTypes from "./types"
 import produce from "immer"
 
 export const initialState = {
@@ -8,12 +8,16 @@ export const initialState = {
 export const reducer = (state = initialState, action = {}) => {
   return produce(state, draft => {
     switch (action.type) {
-      case types.INCREMENT: {
+      case counterTypes.INCREMENT: {
         draft.qtd++
         break
       }
-      case types.DECREMENT: {
+      case counterTypes.DECREMENT: {
         draft.qtd--
+        break
+      }
+      case counterTypes.CHANGE: {
+        draft.qtd = action.payload.qtd
         break
       }
       default:

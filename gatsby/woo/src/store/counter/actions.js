@@ -1,9 +1,13 @@
-import * as types from "./types"
+import counterTypes from "./types"
 
-export function add(params = {}, dispatch) {
-  dispatch({ type: types.INCREMENT })
+export function add(payload = {}, dispatch) {
+  dispatch({ type: counterTypes.INCREMENT })
 }
 
-export function subtract(params = {}, dispatch) {
-  dispatch({ type: types.DECREMENT })
+export function subtract(payload = {}, dispatch) {
+  dispatch({ type: counterTypes.DECREMENT })
+}
+
+export function change(payload = {}, dispatch) {
+  dispatch({ type: counterTypes.CHANGE, payload })
 }

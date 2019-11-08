@@ -8,7 +8,9 @@ function Counter() {
     <>
       Count: {counter.qtd}
       <button onClick={actions.counter.subtract}>-</button>
-      <button onClick={actions.counter.add}>+</button>
+      <button onClick={() => actions.counter.change({ qtd: counter.qtd + 1 })}>
+        +
+      </button>
     </>
   )
 }
