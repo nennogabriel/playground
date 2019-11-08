@@ -10,10 +10,7 @@ const combineReducers = reducers => (state, action) => {
     return result
   }, {})
   if (hasChanged) {
-    localStorage.setItem(
-      process.env.APP_NAME,
-      JSON.stringify({ ...nextState, ux: {} })
-    )
+    localStorage.setItem(process.env.APP_NAME, JSON.stringify({ ...nextState }))
     return nextState
   }
   return state

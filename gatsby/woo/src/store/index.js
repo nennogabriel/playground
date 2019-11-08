@@ -2,7 +2,6 @@ import React, { useReducer, createContext, useContext, useMemo } from "react"
 
 import { rootInitialState, rootReducer } from "./modules/rootReducer"
 import getRootActions from "./modules/rootActions"
-import produce from "immer"
 
 // create the contexts for the global state, dispatch and actions
 export const State = createContext()

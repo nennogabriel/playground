@@ -9,5 +9,6 @@ export function subtract(payload = {}, dispatch) {
 }
 
 export function change(payload = {}, dispatch) {
-  dispatch({ type: counterTypes.CHANGE, payload })
+  dispatch({ type: counterTypes.CHANGE_REQUEST })
+  setTimeout(dispatch, 500, { type: counterTypes.CHANGE_SUCCESS, payload })
 }

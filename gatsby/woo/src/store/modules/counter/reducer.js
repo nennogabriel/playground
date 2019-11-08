@@ -16,7 +16,7 @@ export const reducer = (state = initialState, action = {}) => {
         draft.qtd--
         break
       }
-      case counterTypes.CHANGE: {
+      case counterTypes.CHANGE_SUCCESS: {
         draft.qtd = action.payload.qtd
         break
       }
