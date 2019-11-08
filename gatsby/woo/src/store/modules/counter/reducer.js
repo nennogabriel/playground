@@ -1,5 +1,5 @@
-import counterTypes from "./types"
 import produce from "immer"
+import counterTypes from "./types"
 
 export const initialState = {
   qtd: 0,

@@ -9,7 +9,14 @@ const combineReducers = reducers => (state, action) => {
     hasChanged = hasChanged || result[key] !== state[key]
     return result
   }, {})
-  return hasChanged ? nextState : state
+  if (hasChanged) {
+    localStorage.setItem(
+      process.env.APP_NAME,
+      JSON.stringify({ ...nextState, ux: {} })
+    )
+    return nextState
+  }
+  return state
 }
 
 const combineStores = stores => {
